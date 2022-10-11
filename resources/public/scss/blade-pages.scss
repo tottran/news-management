@@ -1,0 +1,25 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+// @import '~bootstrap/scss/bootstrap';
+
+::placeholder {
+    color: gray;
+}
+
+/* src/app.css */
+
+@keyframes foo {
+    to {
+        background: red;
+    }
+}
+
+#selector {
+    animation: foo 2s;
+}
+

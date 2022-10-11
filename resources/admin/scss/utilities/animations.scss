@@ -1,0 +1,18 @@
+// @import "./../variables/colors.scss";
+
+@keyframes rotate360 {
+    from {
+        transform: rotate(0);
+    }
+    from {
+        transform: rotate(360deg);
+    }
+}
+@keyframes zoomOut {
+    from {
+        transform: scale(1);
+    }
+    from {
+        transform: scale(0.5);
+    }
+}

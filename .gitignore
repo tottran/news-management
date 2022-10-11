@@ -1,23 +1,37 @@
-# ignore everything in the root except the "wp-content" directory.
-!wp-content/
+# /node_modules
+# /public/
+/resources/views/app.blade.php
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+yarn.lock
+/.idea
+/.vscode
+.DS_Store
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# ignore everything in the "wp-content" directory, except:
-# "mu-plugins", "plugins", "themes" directory
-wp-content/*
-!wp-content/mu-plugins/
-!wp-content/plugins/
-!wp-content/themes/
+# dependencies
+# /node_modules
+/.pnp
+.pnp.js
 
-# ignore these plugins
-wp-content/plugins/hello.php
+# testing
+/coverage
 
-# ignore specific themes
-wp-content/themes/twenty*/
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# ignore node dependency directories
-node_modules/
-
-# ignore log files and databases
-*.log
-*.sql
-*.sqlite
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

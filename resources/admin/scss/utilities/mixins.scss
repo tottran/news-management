@@ -1,0 +1,32 @@
+@import "./../variables/colors.scss";
+
+@mixin break-min($min) {
+    @media screen and (min-width: $min) {
+        @content;
+    }
+}
+@mixin break-max($max) {
+    @media screen and (max-width: $max) {
+        @content;
+    }
+}
+@mixin break-between($min, $max) {
+    @media screen and (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+// testing:
+@mixin get-color-background($dark: true) {
+    @if ($dark) {
+        & {
+            background-color: $dark-bg;
+            color: rgba($light-txt, 0.75);
+        }
+    } @else {
+        & {
+            background-color: rgba($light-txt, 0.75);
+            color: $dark-bg;
+        }
+    }
+}

@@ -1,0 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+::-webkit-input-placeholder{color:gray}::placeholder{color:gray}@-webkit-keyframes foo{to{background:red}}@keyframes foo{to{background:red}}#selector{-webkit-animation:foo 2s;animation:foo 2s}
+
+/*# sourceMappingURL=blade-pages.css.map*/

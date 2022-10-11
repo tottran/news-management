@@ -1,0 +1,276 @@
+@import "./../utilities/mixins.scss";
+@import "./../variables/breakpoint.scss";
+@import "./../utilities/animations.scss";
+@import "./../variables/menu.scss";
+
+#navigation {
+    nav {
+        .x-navWrapper {
+            .brand-logo-wrapper {
+                margin: 0;
+                padding: 0;
+                .brand-logo {
+                    color: white;
+
+                    @include break-min($p-ipad) {
+                        padding-left: 63px;
+                    }
+                }
+            }
+        }
+    }
+
+    .y-navWrapper {
+        position: absolute;
+        max-width: 360px;
+
+        input#toggleButton {
+            display: none;
+            &:checked {
+                & + nav {
+                    width: 360px;
+                    box-shadow: 100px 100px 100px 100px rgba(0, 0, 0, 0.45);
+                    overflow: auto;
+
+                    > .ul-wrapper {
+                        transform: translateX(0);
+                        visibility: visible;
+                        opacity: 1;
+
+                        & + label[for="toggleButton"] {
+                            left: calc(100% + 16px);
+                        }
+                    }
+                }
+            }
+        }
+
+        nav {
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 0;
+            z-index: 10;
+            transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+            .ul-wrapper {
+                position: absolute;
+                transform: translateX(-100%);
+                transform-origin: top;
+                width: 100%;
+
+                max-width: 360px;
+                transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+                // khoang cach <- user board
+                padding-top: 60px;
+
+                // hidden content menu - khi chua show nav menu:
+                visibility: hidden;
+                opacity: 0;
+
+                @include break-min(768px) {
+                    width: 15.625%;
+                    min-width: 360px;
+                }
+
+                // user board:
+                .user-board {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 60px;
+                    width: 100%;
+
+                    .user-view {
+                        .background {
+                            height: 60px;
+                            overflow: hidden;
+                            position: relative;
+
+                            img {
+                                width: 100%;
+                            }
+                        }
+                        .avatar {
+                            display: inline-block;
+                            position: absolute;
+                            top: 10px;
+                            left: 10px;
+                            width: 46px;
+                            height: 46px;
+
+                            > a {
+                                position: inherit;
+                                line-height: 1;
+                                color: white;
+                                z-index: 11;
+                                right: -40px;
+
+                                i {
+                                    height: 24px;
+                                    line-height: 1;
+                                }
+
+                                &.edit {
+                                    top: 22px;
+                                }
+                            }
+                        }
+                        .info {
+                            position: absolute;
+                            top: 50%;
+                            left: 66px;
+                            transform: translateY(-50%);
+                            background: repeating-linear-gradient(
+                                90deg,
+                                black,
+                                transparent 100%
+                            );
+                            width: calc(100% - 66px);
+                            height: 100%;
+                            padding-top: 1em;
+                            padding-left: 1em;
+
+                            .text {
+                                margin: 0;
+                                line-height: 32px;
+                            }
+                        }
+                        .logout {
+                            position: absolute;
+                            top: 10px;
+                            right: 0;
+                        }
+                    }
+                }
+
+                .signin-view {
+                    a {
+                        width: 100%;
+                    }
+                }
+            }
+
+            > ul {
+                height: 100%;
+                overflow: auto;
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+
+                ul {
+                    padding-left: 16px;
+                    li {
+                        a {
+                            line-height: 40px;
+                            height: 40px;
+                        }
+                    }
+                }
+
+                li {
+                    display: block;
+
+                    .menu-item-title {
+                        display: block;
+                        color: white;
+                        position: relative;
+                        transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+                        padding-left: 1.5em;
+
+                        &:after {
+                            content: "";
+                            display: block;
+                            width: 0;
+                            height: 1px;
+                            background-color: white;
+                            transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+                        }
+
+                        &:before {
+                            // has before effect
+                            position: absolute;
+                            left: 0;
+                            content: "";
+                            display: block;
+                            width: 0;
+                            height: 100%;
+                            background: linear-gradient(
+                                to right,
+                                $blue,
+                                transparent,
+                                $dark-bg
+                            );
+                            transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+                            z-index: 1;
+                        }
+                    }
+
+                    &:hover {
+                        > .menu-item-title {
+                            color: $green;
+
+                            &:after,
+                            &:before {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        label[for="toggleButton"] {
+            position: absolute;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            animation: rotate360 10s infinite linear;
+            z-index: 20;
+            cursor: pointer;
+            left: 6px;
+            top: 6px;
+            transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+            > em {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            span {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+
+                @each $i, $icon, $deg in $icons {
+                    &:nth-child(#{$i}) {
+                        transform: rotate($deg);
+                    }
+                }
+            }
+
+            &:hover {
+                span {
+                    @each $i, $icon, $deg in $icons {
+                        &:nth-child(#{$i}) {
+                            animation: zoomOut
+                                1s
+                                infinite
+                                ease-in-out
+                                alternate;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

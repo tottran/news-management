@@ -1,0 +1,104 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript"
+  ],
+
+  "plugins": ["react", "prettier"],
+
+  "settings": {
+    "import/extensions": [
+      ".ts",
+      ".tsx",
+      ".css",
+      ".scss",
+      ".svg",
+      ".jpeg",
+      ".jpg",
+      ".png",
+      ".json"
+    ],
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "src"
+        ]
+      }
+    }
+  },
+  "rules": {
+    // Policy
+    "react/prop-types": 0, // already validate using TS
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [
+          ".tsx",
+          ".jsx"
+        ]
+      }
+    ],
+    "import/order": [
+      2,
+      {
+        "alphabetize": {
+          "order": "asc"
+        },
+        "newlines-between": "always"
+      }
+    ],
+    "no-nested-ternary": 0,
+    // Projects config
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "styled-components",
+            "message": "Please import from styled-components/macro."
+          }
+        ],
+        "patterns": [
+          "!styled-components/macro"
+        ]
+      }
+    ],
+    // Override config
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.stories.tsx",
+          "src/storyshots.test.ts"
+        ]
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never"
+      }
+    ],
+    "rules": {
+      "prettier/prettier": [
+          "warn",
+          {
+              "arrowParens": "avoid",
+              "semi": false,
+              "trailingComma": "none",
+              "endOfLine": "lf",
+              "tabWidth": 2,
+              "printWidth": 80,
+              "useTabs": false
+          }
+          ]
+      }
+    // "no-console": "warn"
+  }
+}

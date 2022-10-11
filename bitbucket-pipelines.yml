@@ -1,0 +1,9 @@
+image: samueldebruyn/debian-git
+
+pipelines:
+    default:
+    - step:
+       script:
+        - apt-get update
+        - apt-get -qq install git-ftp
+        - git ftp push -u $FTP_USERNAME -p $FTP_PASSWORD ftp://103.18.6.89/public_html/

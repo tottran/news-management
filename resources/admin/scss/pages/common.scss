@@ -1,0 +1,28 @@
+body {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    font-family: "Comfortaa", cursive;
+
+    a:visited {
+        color: black;
+    }
+
+    .screen-center-fixed-overflow-scroll {
+        width: 320px;
+        height: 280px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 3em 3em 1.5em 3em rgba(255, 125, 0, 0.15);
+    }
+}
+
+.editor {
+    background-color: beige;
+}
