@@ -1,4 +1,4 @@
-name: Public website to CPanel
+name: Publish Website to CPanel
 on:
   push:
     branches:
@@ -8,7 +8,7 @@ jobs:
     name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2.1.0
+    - uses: actions/checkout@v2.4.0
       with:
         fetch-depth: 2
     - name: FTP-Deploy-Action
