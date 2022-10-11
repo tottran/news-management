@@ -1,5 +1,8 @@
-on: push
-name: FTP feltöltés
+name: Public website to CPanel
+on:
+  push:
+    branches:
+      - master
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
